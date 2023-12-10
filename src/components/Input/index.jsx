@@ -1,15 +1,11 @@
 import { Container } from "./style";
 
-export function Input({...rest}) {
-
+export function Input({onChange, ...rest}) {
     return(
-
         <Container>
-
-            <input {...rest} />
-
+            <input 
+            onChange={onChange} 
+            {...rest} />
         </Container>
-
     );
-
 }

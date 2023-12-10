@@ -5,7 +5,7 @@ export const AuthContext = createContext({})
 
 const AuthProvider = ({children}) => {
 
-  const [data, setData] = useState({user : "name"})
+  const [data, setData] = useState({})
 
   const login = async({email, username,password}) => {
     try{
