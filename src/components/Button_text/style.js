@@ -13,4 +13,6 @@ export const Container = styled.button`
 
     margin-top: 7px;
 
+    cursor: pointer;
+
 `;

@@ -29,22 +29,16 @@ export function Login() {
     <Container>
 
       <Screen_log title='Login'>
-
-
-        <Input 
-        onChange = {e => setEmail(e.target.value)}
-        placeholder='e-mail' 
-        type='text' />
         
         <Input 
         onChange = {e => setUsername(e.target.value)}
-        placeholder='ou nome de usuário' 
-        type='text' />
+        placeholder='Nome de usuário' 
+        type='text' required />
         
         <Input 
         onChange={e => setPassword(e.target.value)}
         placeholder='Senha' 
-        type='password' />
+        type='password' require />
         <Link to = '/register'>
           <Button_text title='Não possui cadastro?'/>
         </Link>

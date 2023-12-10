@@ -35,27 +35,27 @@ export function Register() {
         <Input 
         onChange={e => setName(e.target.value)}
         placeholder='Seu nome' 
-        type='text' />
+        type='text' required/>
 
         <Input 
         onChange={e => setUsername(e.target.value)}
         placeholder='Username' 
-        type='text' />
+        type='text' required />
 
         <Input 
         onChange={e => setEmail(e.target.value)}
         placeholder='Email' 
-        type='email' />
+        type='email' required />
 
         <Input 
         onChange={e => setPassword(e.target.value)}
         placeholder='Senha'
-        type='password' />
+        type='password' required />
 
         <Input 
         onChange={e => setConfirmPassword(e.target.value)}
         placeholder='Confirmar senha' 
-        type='password' />
+        type='password' required />
         <Link to = "/">
           <Button_text 
           title='Já possui um cadastro?'/>

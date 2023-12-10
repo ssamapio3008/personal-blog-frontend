@@ -1,9 +1,12 @@
 import {Container} from './style'
+import { Post } from '../../components/Post'
 
 export const Feed =()=>{
   return (
     <Container>
-      <h1>hello world</h1>
+        <Post user='acato21'>
+          
+        </Post>
     </Container>
   )
 }

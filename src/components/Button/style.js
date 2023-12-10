@@ -14,4 +14,6 @@ export const Container = styled.button`
 
     color: ${({ theme }) => theme.COLORS.PINK};
 
+    cursor: pointer;
+
 `;
