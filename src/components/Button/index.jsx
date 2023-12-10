@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Container } from "./style";
 
-export function Button({title, ...rest }) {
+export function Button({onClick, title, ...rest }) {
 
     return(
 
-        <Container {...rest}>
+        <Container 
+        onClick={onClick}
+        {...rest}>
 
            { title }     
     

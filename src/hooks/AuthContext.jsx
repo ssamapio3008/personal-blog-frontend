@@ -7,6 +7,10 @@ const AuthProvider = ({children}) => {
 
   const [data, setData] = useState({})
 
+  const register = async({email, username, password, name})=>{
+    const response = await api.post('/sessions/register', {email, username, formPassword : password, name})
+  }
+
   const login = async({email, username,password}) => {
     try{
 
@@ -48,6 +52,7 @@ const AuthProvider = ({children}) => {
       {
         logout,
         login,
+        register,
         user : data.user//user object with all info
       }
     }>
