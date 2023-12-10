@@ -5,7 +5,7 @@ export const AuthContext = createContext({})
 
 const AuthProvider = ({children}) => {
 
-  const [data, setData] = useState({})
+  const [data, setData] = useState({user : "name"})
 
   const login = async({email, username,password}) => {
     try{
@@ -32,7 +32,7 @@ const AuthProvider = ({children}) => {
     setData({})//turning into an empty object
   }
 
-  useEffect(()=> {
+  /*useEffect(()=> {
     const user = localStorage.getItem("@personal-blog-user")
     const token = localStorage.getItem("@personal-blog-token")
 
@@ -41,7 +41,7 @@ const AuthProvider = ({children}) => {
         user : JSON.parse(user), 
         token})
     } else logout()
-  }, [])
+  }, [])*/
 
   return (
     <AuthContext.Provider value = {
@@ -57,8 +57,8 @@ const AuthProvider = ({children}) => {
 }
 
 function useAuth(){
-  const user = {}
-  return user
+  const context = useContext(AuthContext)
+  return context
 }
 
 export {AuthProvider, useAuth}//assim terei acesso ao contexto que permeia as rotas e disponibiliza os dados

@@ -5,7 +5,7 @@ import {Feed} from '../pages/Feed'
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path='/feed' element = {<Feed/>}/>
+      <Route path='/' element = {<Feed/>}/>
     </Routes>
   )
 }
