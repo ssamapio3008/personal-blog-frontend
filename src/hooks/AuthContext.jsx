@@ -45,7 +45,7 @@ const AuthProvider = ({children}) => {
         user : JSON.parse(user), 
         token})
     } else logout()
-  }, [])*/
+  }, [])*/ //this is only for initial tests 
 
   return (
     <AuthContext.Provider value = {
