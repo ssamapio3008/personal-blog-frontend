@@ -70,9 +70,16 @@ export const Info = styled.div`
         text-decoration: none;
         color: black;
 
-        font-size: 8px;
+        font-size: 10px;
 
         margin-left: 2px;
+
+
+        &:hover{
+
+            text-decoration: underline;
+
+        }
 
     }
 `;

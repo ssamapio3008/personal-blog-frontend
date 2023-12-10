@@ -1,12 +1,17 @@
-import {Container} from './style'
-import { Post } from '../../components/Post'
+import {Container, Content } from './style';
+import { Post } from '../../components/Post';
+import { Header } from '../../components/Header';
 
-export const Feed =()=>{
+export const Feed = ()=>{
   return (
     <Container>
-        <Post user='acato21'>
-          
-        </Post>
+
+      <Header />
+
+      <Content>
+        <Post user='acato21' />
+      </Content>
+
     </Container>
   )
 }

@@ -6,6 +6,7 @@ export function Input({onChange, ...rest}) {
             <input 
             onChange={onChange} 
             {...rest} />
+
         </Container>
     );
 }
