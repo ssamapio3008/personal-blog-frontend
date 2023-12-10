@@ -1,9 +1,7 @@
-import { useContext, createContext, useState } from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 import { api } from "../service/api";
 
-import React from 'react'
-
-const AuthContext = createContext()
+export const AuthContext = createContext({})
 
 const AuthProvider = ({children}) => {
 
@@ -34,6 +32,17 @@ const AuthProvider = ({children}) => {
     setData({})//turning into an empty object
   }
 
+  useEffect(()=> {
+    const user = localStorage.getItem("@personal-blog-user")
+    const token = localStorage.getItem("@personal-blog-token")
+
+    if(user && token){
+      setData({
+        user : JSON.parse(user), 
+        token})
+    } else logout()
+  }, [])
+
   return (
     <AuthContext.Provider value = {
       {
@@ -47,4 +56,9 @@ const AuthProvider = ({children}) => {
   )
 }
 
-export default AuthProvider
+function useAuth(){
+  const user = {}
+  return user
+}
+
+export {AuthProvider, useAuth}//assim terei acesso ao contexto que permeia as rotas e disponibiliza os dados
