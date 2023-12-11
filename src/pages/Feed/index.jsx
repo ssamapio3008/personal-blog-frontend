@@ -11,13 +11,14 @@ export const Feed = ()=>{
 
   const [title, setTile] = useState('')
   const {user, logout} = useAuth()
-  const [posts, setPosts] = useState({})
+  const [matrix, setMatrix] = useState([])
 
+   
+  
   useEffect(() => {
-
     async function fetchData(){
-      const response = await api.get('/posts/inside', {post_id : 1})
-      setPosts(response.data)
+      const response = await api.get(`/posts/feed`)
+      setMatrix(response.data)
       console.log(response.data)
     }
     fetchData()
@@ -26,10 +27,23 @@ export const Feed = ()=>{
   return (
     <Container>
 
-      <Header />
-
+      
+    <Header />
       <Content>
-        <Post user='acato21' />
+        {
+        matrix && matrix.map(posts => {
+          return posts.map((post, index) => {
+            return <Post
+            key={String(index)}
+            content={post.content}
+            likes={post.likes}
+            postIndex={post.post_image_index}
+            />
+          })
+            
+          
+        })
+        }
       </Content>
 
     </Container>

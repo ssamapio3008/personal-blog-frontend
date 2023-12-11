@@ -21,10 +21,12 @@ export const Container = styled.div`
 
 export const Content = styled.div`
 
-    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     width: fit-content;
-    margin: auto;
+    margin: 2rem auto;
 
 
 `;

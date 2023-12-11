@@ -7,6 +7,12 @@ const AuthProvider = ({children}) => {
 
   const [data, setData] = useState({})
 
+  const feedPosts = async() =>{
+    const response = await api.get('/posts/postsview')
+    return response.data
+  }
+
+
   const register = async({email, username, password, name})=>{
     const response = await api.post('/sessions/register', {email, username, formPassword : password, name})
   }
@@ -15,16 +21,21 @@ const AuthProvider = ({children}) => {
     try{
 
       const response = await api.post('/sessions/', {email, password})
+      .then((data) =>{
+        console.log('ok')
+        return data
+      } )
+      .catch(e => console.log(e))
       
       const {token, user} = response.data
-      
+      console.log(token)
       localStorage.setItem("@personal-blog-user", JSON.stringify(user))
-      localStorage.setItem("@personal-blog-token", JSON.stringify(token))
+      localStorage.setItem("@personal-blog-token", token)
       
-      api.defaults.headers.authorization = `Bearer ${token}`//insert of the token inside of headers to take it in the backend
+      api.defaults.headers.common = {'Authorization': `bearer ${token}`}//insert of the token inside of headers to take it in the backend
       setData(response.data)//user info
     } catch (error){
-      if(error.message)alert(error.response.data.message)
+      if(error.message)alert(error.message)
       else alert('Não foi possível entrar...')
     }
       
@@ -39,7 +50,7 @@ const AuthProvider = ({children}) => {
   useEffect(()=> {
     const user = localStorage.getItem("@personal-blog-user")
     const token = localStorage.getItem("@personal-blog-token")
-
+    api.defaults.headers.authorization = `Bearer ${token}`
     if(user && token){
       setData({
         user : JSON.parse(user), 
@@ -50,6 +61,7 @@ const AuthProvider = ({children}) => {
   return (
     <AuthContext.Provider value = {
       {
+        feedPosts,
         logout,
         login,
         register,

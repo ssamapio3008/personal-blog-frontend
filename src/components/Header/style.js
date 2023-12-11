@@ -7,7 +7,7 @@ export const Container = styled.header`
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-    padding: 0 15px;
+    padding: 0 35px;
 
     display: flex;
     justify-content: space-between;
@@ -52,12 +52,12 @@ export const Perfil = styled.div`
 
 export const Input = styled.input`
 
-    width: 300px;
+    width: 230px;
     height: 25px;
 
     border: none;
-    border-radius: 8px;
-    padding: 5px;
+    border-radius: 8999px;
+    padding: 5px 10px;
     margin-right: 115px;
 
 `;
