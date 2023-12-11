@@ -4,21 +4,52 @@ import Perfil from '../../img/perfil.jpg'
 
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { GoHeart, GoHeartFill } from "react-icons/go";
+import { IoMdHeart } from "react-icons/io";
+
 import {useAuth} from '../../hooks/AuthContext'
 import defaultavatar  from '../../assets/defaultavatar.png'
 import {api} from '../../service/api'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export function Post({ content, postIndex, likes, user_array}){
+export function Post({post_id, content, postIndex, likes, user_array}){
     
     const [name, user_avatar, username] = user_array
     const avatarURL = user_avatar ? `${api.defaults.baseURL}/files/${user_avatar}` : defaultavatar 
     const postURL = postIndex ? `${api.defaults.baseURL}/files/${postIndex}` : null
     const [avatar, setAvatar] = useState(avatarURL)
     const [postImage, setPostImage ] = useState(postURL)
+    const [wasLiked, setWasLiked]= useState(false)
+
+    async function handleInsideMoreInfo(){
+        console.log(post_id)
+        const response = await api.get(`/posts/inside?post_id=${post_id}`)
+        console.log(response.data)
+    }
+
+    async function handleLike(){
+        const response = await api.post(`/likes/like?post_id=${post_id}`)
+        console.log(response.data.wasLiked)
+        setWasLiked(response.data.wasLiked)
+    }
+
+    async function handleUnlike () {
+        const res =await api.delete(`/likes/unlike?post_id=${post_id}`)
+        console.log(res.data.wasLiked)
+        setWasLiked(false)
+    }
+
+    useEffect(() => {
+        async function fetchWasliked(){
+            const response = await api.get(`/likes/check?post_id=${post_id}`)
+            setWasLiked(response.data.liked)
+        }
+
+        fetchWasliked()
+    }, [wasLiked, likes])
+    
     return(
 
-        <Container>
+        <Container onClick={handleInsideMoreInfo}>
 
             <Info> 
                 <button>
@@ -29,16 +60,14 @@ export function Post({ content, postIndex, likes, user_array}){
             </Info>
             {
                 postImage && <img src={postImage} alt="Foto de Post" />
-
             }
-            
             <p>
                 {content}
             </p>
 
             <Interaction>
                 <div>
-                    <GoHeart />
+                    {wasLiked ? <IoMdHeart onClick={handleUnlike}/> : <GoHeart onClick={handleLike}/>} 
                     <FaRegCommentDots />
                 </div>
                

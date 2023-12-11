@@ -4,8 +4,8 @@ export const Container = styled.div`
     
     width:min(430px, 90%);
     margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 1rem 2rem -1rem rgb(0,0,0, 0.3) ;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px -1px rgb(0,0,0, 0.3);
     padding: 10px 20px 20px;
     background: #dfdfdf;
 
@@ -13,18 +13,19 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     overflow-y: auto;
-    gap: 20px;
+    gap: 14px;
     > img {
         object-fit: cover;
         width: 350px;
         border-radius: 8px;
-
+        padding-bottom: 10px ;
+        border-bottom: 1px solid gray;
     }
 
     > p {
 
-        border-top: 1px solid gray;
-
+        border-bottom: 1px solid gray;
+        padding-bottom: 10px;
         margin-top: 3px;
 
         font-size: 16px;

@@ -59,7 +59,10 @@ export const Input = styled.input`
     border-radius: 8999px;
     padding: 5px 10px;
     margin-right: 115px;
-
+    @media(max-width: 440px){
+        width: 150px;
+        margin: 0;
+    }
 `;
 
 export const turnOff = styled.button`

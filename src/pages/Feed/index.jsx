@@ -29,9 +29,11 @@ export const Feed = ()=>{
 
       
     <Header />
-      <Content>
+      <Content
+    
+      >
         {
-        matrix && matrix.map(posts => {
+        matrix.map(posts => {
           return posts.map((post, index) => {
             return <Post
             key={String(index)}
@@ -39,10 +41,10 @@ export const Feed = ()=>{
             postIndex={post.post_image_index}
             user_array={[post.name, post.avatar, post.username]}
             likes = {post.postLikes}
+            post_id={post.post_id}
             />
           })
-            
-          
+           
         })
         }
       </Content>
