@@ -1,11 +1,11 @@
 
-import {Container} from './style'
+import {Container, Content} from './style'
 import { Button } from '../../components/Button'
 import { Post } from '../../components/Post'
 import {useAuth} from '../../hooks/AuthContext'
 import { useEffect, useState, useRef } from 'react'
 import { api } from '../../service/api'
-
+import {Header} from '../../components/Header'
 
 export const Feed = ()=>{
 
