@@ -4,9 +4,11 @@ import Perfil from '../../img/perfil.jpg'
 
 import { FaRegCommentDots, FaCommentDots } from "react-icons/fa";
 import { GoHeart, GoHeartFill } from "react-icons/go";
- 
-export function Post({user}){
+import {useAuth} from '../../hooks/AuthContext'
 
+
+export function Post({user}){
+    
     return(
 
         <Container>

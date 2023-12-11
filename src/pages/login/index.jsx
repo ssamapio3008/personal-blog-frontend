@@ -10,19 +10,18 @@ import { Link } from "react-router-dom";
 export function Login() {
   const {login} = useAuth()
 
-  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
   const handleSigIn = async () => {
-    if(!username && !email || !password) return alert('preencha todos os campos')
+    if(!email || !password) return alert('preencha todos os campos')
 
-    await login({username, email, password})
+    await login({email, password})
   }
 
   useEffect(()=> {
-    console.log(username)
-  }, [username])
+    console.log()
+  }, [])
 
   return(
 
@@ -31,14 +30,14 @@ export function Login() {
       <Screen_log title='Login'>
         
         <Input 
-        onChange = {e => setUsername(e.target.value)}
-        placeholder='Nome de usuário' 
-        type='text' required />
+        onChange = {e => setEmail(e.target.value)}
+        placeholder='E-mail' 
+        type='text'  />
         
         <Input 
         onChange={e => setPassword(e.target.value)}
         placeholder='Senha' 
-        type='password' require />
+        type='password'  />
         <Link to = '/register'>
           <Button_text title='Não possui cadastro?'/>
         </Link>

@@ -11,10 +11,10 @@ const AuthProvider = ({children}) => {
     const response = await api.post('/sessions/register', {email, username, formPassword : password, name})
   }
 
-  const login = async({email, username,password}) => {
+  const login = async({email,password}) => {
     try{
 
-      const response = await api.post('/sessions/', {email, username, password})
+      const response = await api.post('/sessions/', {email, password})
       
       const {token, user} = response.data
       
@@ -36,7 +36,7 @@ const AuthProvider = ({children}) => {
     setData({})//turning into an empty object
   }
 
-  /*useEffect(()=> {
+  useEffect(()=> {
     const user = localStorage.getItem("@personal-blog-user")
     const token = localStorage.getItem("@personal-blog-token")
 
@@ -45,7 +45,7 @@ const AuthProvider = ({children}) => {
         user : JSON.parse(user), 
         token})
     } else logout()
-  }, [])*/ //this is only for initial tests 
+  }, [])  
 
   return (
     <AuthContext.Provider value = {
