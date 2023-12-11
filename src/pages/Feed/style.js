@@ -25,7 +25,7 @@ export const Content = styled.div`
     flex-direction: column;
     gap: 1rem;
 
-    width: fit-content;
+    width: 100%;
     margin: 2rem auto;
 
 

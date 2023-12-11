@@ -9,12 +9,16 @@ export const Container = styled.div`
     margin-top: 16px;
 
     > input {
-
+        background: white;
+        border-left: 2px solid black;
         width: 100%;
         height: 24px;
-        border: none;
-        border-radius: 10px;
-        padding: 10px;
+        border-top: none;
+        border-radius: 2px;
+        border-bottom: none;
+        border-right: none;
+        padding: 20px 14px;
+        box-shadow: 0 0 3px 1px rgb(0,0,0, 0.3);
     }
 
 `;

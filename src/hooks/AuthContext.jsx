@@ -32,10 +32,10 @@ const AuthProvider = ({children}) => {
       localStorage.setItem("@personal-blog-user", JSON.stringify(user))
       localStorage.setItem("@personal-blog-token", token)
       
-      api.defaults.headers.common = {'Authorization': `bearer ${token}`}//insert of the token inside of headers to take it in the backend
+      api.defaults.headers.authorization = `Bearer ${token}`//insert of the token inside of headers to take it in the backend
       setData(response.data)//user info
     } catch (error){
-      if(error.message)alert(error.message)
+      if(error.response)alert(error.response.data.message)
       else alert('Não foi possível entrar...')
     }
       

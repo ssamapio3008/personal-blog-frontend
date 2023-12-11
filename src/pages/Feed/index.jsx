@@ -36,8 +36,9 @@ export const Feed = ()=>{
             return <Post
             key={String(index)}
             content={post.content}
-            likes={post.likes}
             postIndex={post.post_image_index}
+            user_array={[post.name, post.avatar, post.username]}
+            likes = {post.postLikes}
             />
           })
             

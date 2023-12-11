@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
-    width: calc(450px, 90%);
-
+    
+    width:min(430px, 90%);
+    margin: auto;
     border-radius: 10px;
     box-shadow: 0 1rem 2rem -1rem rgb(0,0,0, 0.3) ;
     padding: 10px 20px 20px;
@@ -13,7 +13,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     overflow-y: auto;
-    gap: 4px;
+    gap: 20px;
     > img {
         object-fit: cover;
         width: 350px;
@@ -27,7 +27,7 @@ export const Container = styled.div`
 
         margin-top: 3px;
 
-        font-size: 15px;
+        font-size: 16px;
         text-align: justify;
         
 
@@ -46,7 +46,9 @@ export const Info = styled.div`
 
         border: 1px solid ${({ theme }) => theme.COLORS.BROWN};
         background: transparent;
-
+        display: flex ;
+        align-items: center;
+        justify-content: center;
         width: 40px;
         height: 40px;
         overflow: hidden;
@@ -54,8 +56,8 @@ export const Info = styled.div`
 
         > img {
 
-            max-width: 40px;
-            max-height: 40px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
 
         }
@@ -67,7 +69,7 @@ export const Info = styled.div`
         text-decoration: none;
         color: black;
 
-        font-size: 15px;
+        font-size: 16px;
 
         margin-left: 2px;
 

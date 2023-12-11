@@ -4,10 +4,10 @@ import styled from "styled-components";
 export const Container = styled.button`
 
 
-    color: yellow;
+    color: black;
     background: none;
-    font-size: 10px;
-
+    font-size: 14px;
+    text-decoration: underline;
     border: none;
     width: fit-content;
 
