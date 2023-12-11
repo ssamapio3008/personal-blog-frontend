@@ -1,10 +1,14 @@
+
 import {Container} from './style'
 import { Button } from '../../components/Button'
 import { Post } from '../../components/Post'
 import {useAuth} from '../../hooks/AuthContext'
 import { useEffect, useState, useRef } from 'react'
 import { api } from '../../service/api'
-export const Feed =()=>{
+
+
+export const Feed = ()=>{
+
   const [title, setTile] = useState('')
   const {user, logout} = useAuth()
   const [posts, setPosts] = useState({})
@@ -21,15 +25,13 @@ export const Feed =()=>{
 
   return (
     <Container>
-      <Button 
-      title="logout"
-      onClick={logout}
-      />
-        {
 
-        }
-        <Post user='acato21'> 
-        </Post>
+      <Header />
+
+      <Content>
+        <Post user='acato21' />
+      </Content>
+
     </Container>
   )
 }
