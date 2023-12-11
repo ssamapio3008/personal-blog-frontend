@@ -31,7 +31,7 @@ export function Post({post_id, content, postIndex, likes, user_array}){
         console.log(response.data.wasLiked)
         setWasLiked(response.data.wasLiked)
     }
-
+    //atualizacao
     async function handleUnlike () {
         const res =await api.delete(`/likes/unlike?post_id=${post_id}`)
         console.log(res.data.wasLiked)
